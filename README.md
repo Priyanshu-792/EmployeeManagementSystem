@@ -1,4 +1,11 @@
 # EmployeeManagement
+## Initial Crediantials:
+###Admin:
+username:admin
+password:'1q2w3E*'
+###HR:
+username:HR
+password:'1q2w3E*'
 
 ## About this solution
 

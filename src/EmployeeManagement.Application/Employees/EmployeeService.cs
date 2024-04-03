@@ -34,16 +34,16 @@ public class EmployeeService :
 
     public async Task<List<EmployeeDto>> GetEmployeeByDepartmentAsync(string departmentName)
     {
-        var queryable = await Repository.GetQueryableAsync();
-        var employees = await queryable.Where($"DepartmentName == \"{departmentName}\"").ToListAsync();
-        return ObjectMapper.Map<List<Employee>, List<EmployeeDto>>(employees);
+        var query = await Repository.GetQueryableAsync();
+        var filteredEmployees = await query.Where($"DepartmentName == \"{departmentName}\"").ToListAsync();
+        return ObjectMapper.Map<List<Employee>, List<EmployeeDto>>(filteredEmployees);
     }
 
     public async Task<List<EmployeeDto>> GetEmployeeByNameAsync(string name)
     {
-        var queryable = await Repository.GetQueryableAsync();
-        var employees = await queryable.Where($"Name == \"{name}\"").ToListAsync();
-        return ObjectMapper.Map<List<Employee>, List<EmployeeDto>>(employees);
+        var query = await Repository.GetQueryableAsync();
+        var filteredEmployees = await query.Where($"Name == \"{name}\"").ToListAsync();
+        return ObjectMapper.Map<List<Employee>, List<EmployeeDto>>(filteredEmployees);
     }
 }
 
