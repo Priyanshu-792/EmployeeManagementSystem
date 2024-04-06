@@ -34,18 +34,6 @@ public class EmployeeManagementDataSeederContributor
     public async Task SeedAsync(DataSeedContext context)
     {
 
-        //var role = await _identityRoleManager.FindByNameAsync("HR");
-        //if (role == null)
-        //{
-        //    await _identityRoleManager.CreateAsync(
-        //         new IdentityRole(Guid.NewGuid(), "HR"));
-        //}
-
-
-        //IdentityUser identityUser1 = new IdentityUser(Guid.NewGuid(), "HR", "testhr@email.com");
-        //await _identityUserManager.CreateAsync(identityUser1, "1q2w3E*");
-        //await _identityUserManager.AddToRoleAsync(identityUser1, "HR");
-
 
         var role = await _identityRoleManager.FindByNameAsync("HR");
         if (role == null)
@@ -58,7 +46,7 @@ public class EmployeeManagementDataSeederContributor
 
 
         // Create the "HR" user and add them to the "HR" role
-        var user = await _identityUserManager.FindByNameAsync("testhr@email.com");
+        var user = await _identityUserManager.FindByEmailAsync("testhr@email.com");
         if (user == null)
         {
             user = new IdentityUser(Guid.NewGuid(), "HR", "testhr@email.com");
@@ -72,12 +60,6 @@ public class EmployeeManagementDataSeederContributor
         await _identityPermissionManager.SetForRoleAsync("HR", EmployeeManagementPermissions.Employees.Create, true);
         await _identityPermissionManager.SetForRoleAsync("HR", EmployeeManagementPermissions.Employees.Edit, true);
         await _identityPermissionManager.SetForRoleAsync("HR", EmployeeManagementPermissions.Employees.Delete, true);
-
-
-
-
-
-
 
 
 
