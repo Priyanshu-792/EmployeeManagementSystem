@@ -33,8 +33,8 @@ public class UserAppService : IdentityUserAppService
 
     public override async Task<IdentityUserDto> CreateAsync(IdentityUserCreateDto input)
     {
-        var isAdmin = _currentUser.IsInRole("admin");
-        var role = input.RoleNames.Any(x => x != "HR");
+       bool isAdmin = _currentUser.IsInRole("admin");
+       bool role = input.RoleNames.Any(x => x != "HR");
         if (isAdmin == true && role == false)
         {
 
@@ -48,8 +48,8 @@ public class UserAppService : IdentityUserAppService
     }
     public override async Task<IdentityUserDto> UpdateAsync(Guid id, IdentityUserUpdateDto input)
     {
-        var isAdmin = _currentUser.IsInRole("admin");
-        var role = input.RoleNames.Any(x => x != "HR");
+       bool isAdmin = _currentUser.IsInRole("admin");
+       bool role = input.RoleNames.Any(x => x != "HR");
         if (isAdmin == true && role == false)
         {
 
